@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Release Notes</title>
+
+<style>
+:root {
+  --bg: #0f172a;
+  --sidebar: #020617;
+  --card: #111827;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --border: #1f2937;
+  --accent: #3b82f6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  background: var(--sidebar);
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  border-right: 1px solid var(--border);
+  position: fixed;
+  overflow-y: auto;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  max-width: 140px;
+  background: white;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.search {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: none;
+  background: var(--card);
+  color: var(--text);
+}
+
+.sidebar .project-title {
+  margin-top: 15px;
+  font-weight: bold;
+  color: white;
+  font-size: 14px;
+}
+
+.sidebar a {
+  display: block;
+  color: var(--muted);
+  text-decoration: none;
+  margin: 4px 0;
+  padding: 6px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background: var(--card);
+  color: white;
+}
+
+/* CONTENT */
+.content {
+  margin-left: 260px;
+  padding: 40px;
+  max-width: 900px;
+}
+
+/* PROJECT TITLE */
+.project-header {
+  margin-top: 40px;
+  font-size: 22px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 5px;
+}
+
+/* VERSION CARD */
+.version {
+  margin-bottom: 40px;
+  padding: 20px;
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.badge {
+  background: var(--accent);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.date {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-right: 6px;
+}
+
+.new { background: #22c55e; }
+.fix { background: #ef4444; }
+.improve { background: #3b82f6; }
+
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="logo">
+    <img src="images/logo.png">
+  </div>
+
+  <input class="search" placeholder="Buscar..." oninput="filterVersions(this.value)">
+  <div id="menu"></div>
+</div>
+
+<!-- CONTENT -->
+<div class="content" id="content"></div>
+
+<script>
+function label(type) {
+  if (type === 'new') return 'Novo';
+  if (type === 'fix') return 'Fix';
+  if (type === 'improve') return 'Melhoria';
+  return type;
+}
+
+function render(data) {
+  const content = document.getElementById('content');
+  const menu = document.getElementById('menu');
+
+  content.innerHTML = '';
+  menu.innerHTML = '';
+
+  data.forEach(project => {
+
+    // HEADER DO PROJETO
+    const projectHeader = document.createElement('div');
+    projectHeader.className = 'project-header';
+    projectHeader.innerText = project.project;
+    content.appendChild(projectHeader);
+
+    // MENU - TÍTULO DO PROJETO
+    const menuTitle = document.createElement('div');
+    menuTitle.className = 'project-title';
+    menuTitle.innerText = project.project;
+    menu.appendChild(menuTitle);
+
+    // ORDENAR VERSÕES
+    project.releases.sort((a, b) =>
+      b.version.localeCompare(a.version, undefined, { numeric: true })
+    );
+
+    project.releases.forEach((v, index) => {
+
+      const id = project.project + '-' + v.version;
+
+      // MENU LINK
+      const link = document.createElement('a');
+      link.href = '#' + id;
+      link.innerText = 'v' + v.version;
+      menu.appendChild(link);
+
+      // CARD
+      const div = document.createElement('div');
+      div.className = 'version';
+      div.id = id;
+
+      let html = `
+        <div class="header">
+          <h2>Versão ${v.version}</h2>
+          ${index === 0 ? '<span class="badge">Latest</span>' : ''}
+        </div>
+      `;
+
+      html += `<div class="date">${v.date}</div>`;
+
+      v.changes.forEach(c => {
+        html += `<p><span class="tag ${c.type}">${label(c.type)}</span> ${c.text}</p>`;
+      });
+
+      div.innerHTML = html;
+      content.appendChild(div);
+    });
+
+  });
+}
+
+function filterVersions(query) {
+  query = query.toLowerCase();
+  const versions = document.querySelectorAll('.version');
+
+  versions.forEach(v => {
+    const text = v.innerText.toLowerCase();
+    v.style.display = text.includes(query) ? 'block' : 'none';
+  });
+}
+
+// CARREGAR JSON
+fetch('releases.json')
+  .then(res => res.json())
+  .then(data => render(data))
+  .catch(err => {
+    document.getElementById('content').innerHTML =
+      '<p>Erro ao carregar releases.json</p>';
+    console.error(err);
+  });
+</script>
+
+</body>
+</html>

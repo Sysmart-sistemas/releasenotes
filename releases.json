@@ -1,0 +1,28 @@
+[
+  {
+    "project": "Retaguarda",
+    "releases": [
+      {
+        "version": "2.0",
+        "date": "Abril 2026",
+        "changes": [
+          { "type": "new", "text": "Cadastro de clientes melhorado" },
+          { "type": "fix", "text": "Correção de relatórios" }
+        ]
+      }
+    ]
+  },
+  {
+    "project": "PDV",
+    "releases": [
+      {
+        "version": "1.5",
+        "date": "Abril 2026",
+        "changes": [
+          { "type": "new", "text": "Novo layout de vendas" },
+          { "type": "improve", "text": "Mais rápido ao finalizar compra" }
+        ]
+      }
+    ]
+  }
+]

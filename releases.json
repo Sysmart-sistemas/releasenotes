@@ -3,6 +3,27 @@
     "project": "PDV",
     "releases": [
       {
+        "version": "2.5.1",
+        "date": "",
+        "changes": [
+          { "type": "improve", "text": "Issue 64 - Importar valor de desconto no pedido de venda" },
+          { "type": "fix", "text": "Issue 59 - Cupom em contingência mudando numeração" },
+          { "type": "fix", "text": "Issue 46 - Erro ao emitir NFC-e em contingência" }
+        ]
+      },
+      {
+        "version": "2.5.0",
+        "date": "",
+        "changes": [
+          { "type": "improve", "text": "Issue 43 - Solicitação cliente Mulati Supermercado" },
+          { "type": "fix", "text": "Issue 56 - Caixa offline com lentidão ao passar produtos" },
+          { "type": "fix", "text": "Issue 54 - Tabela tblpdvfecop ficando vazia ao iniciar caixa" },
+          { "type": "fix", "text": "Issue 50 - Chave NFC-e alterando após autorização em contingência" },
+          { "type": "fix", "text": "Issue 51 - Erro 'null null' ao cancelar cupom após 30 minutos" }
+        ]
+      },
+
+      {
         "version": "2408.4",
         "date": "",
         "changes": [

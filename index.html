@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Release Notes</title>
+<title>Sysmart Sistemas</title>
 
 <style>
 :root {
@@ -175,6 +176,17 @@ function label(type) {
   return type;
 }
 
+/* 🔥 NOVA ORDENAÇÃO INTELIGENTE */
+function compareVersions(a, b) {
+  const isNewA = a.version.startsWith('2.');
+  const isNewB = b.version.startsWith('2.');
+
+  if (isNewA && !isNewB) return -1;
+  if (!isNewA && isNewB) return 1;
+
+  return b.version.localeCompare(a.version, undefined, { numeric: true });
+}
+
 function render(data) {
   const content = document.getElementById('content');
   const menu = document.getElementById('menu');
@@ -184,34 +196,28 @@ function render(data) {
 
   data.forEach(project => {
 
-    // HEADER DO PROJETO
     const projectHeader = document.createElement('div');
     projectHeader.className = 'project-header';
     projectHeader.innerText = project.project;
     content.appendChild(projectHeader);
 
-    // MENU - TÍTULO DO PROJETO
     const menuTitle = document.createElement('div');
     menuTitle.className = 'project-title';
     menuTitle.innerText = project.project;
     menu.appendChild(menuTitle);
 
-    // ORDENAR VERSÕES
-    project.releases.sort((a, b) =>
-      b.version.localeCompare(a.version, undefined, { numeric: true })
-    );
+    /* 🔥 AQUI A ORDENAÇÃO CORRETA */
+    project.releases.sort(compareVersions);
 
     project.releases.forEach((v, index) => {
 
       const id = project.project + '-' + v.version;
 
-      // MENU LINK
       const link = document.createElement('a');
       link.href = '#' + id;
       link.innerText = 'v' + v.version;
       menu.appendChild(link);
 
-      // CARD
       const div = document.createElement('div');
       div.className = 'version';
       div.id = id;
@@ -246,7 +252,6 @@ function filterVersions(query) {
   });
 }
 
-// CARREGAR JSON
 fetch('releases.json')
   .then(res => res.json())
   .then(data => render(data))

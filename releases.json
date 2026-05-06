@@ -6,164 +6,272 @@
         "version": "2.5.1",
         "date": "",
         "changes": [
-          { "type": "improve", "text": "Issue 64 - Importar valor de desconto no pedido de venda" },
-          { "type": "fix", "text": "Issue 59 - Cupom em contingência mudando numeração" },
-          { "type": "fix", "text": "Issue 46 - Erro ao emitir NFC-e em contingência" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "improve", "text": "Issue 64 - Importar valor de desconto no pedido de venda" },
+              { "type": "fix", "text": "Issue 59 - Cupom em contingência mudando numeração" },
+              { "type": "fix", "text": "Issue 46 - Erro ao emitir NFC-e em contingência" }
+            ]
+          }
         ]
       },
       {
         "version": "2.5.0",
         "date": "",
         "changes": [
-          { "type": "improve", "text": "Issue 43 - Solicitação cliente Mulati Supermercado" },
-          { "type": "fix", "text": "Issue 56 - Caixa offline com lentidão ao passar produtos" },
-          { "type": "fix", "text": "Issue 54 - Tabela tblpdvfecop ficando vazia ao iniciar caixa" },
-          { "type": "fix", "text": "Issue 50 - Chave NFC-e alterando após autorização em contingência" },
-          { "type": "fix", "text": "Issue 51 - Erro 'null null' ao cancelar cupom após 30 minutos" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "improve", "text": "Issue 43 - Solicitação cliente Mulati Supermercado" },
+              { "type": "fix", "text": "Issue 56 - Caixa offline com lentidão ao passar produtos" },
+              { "type": "fix", "text": "Issue 54 - Tabela tblpdvfecop ficando vazia ao iniciar caixa" },
+              { "type": "fix", "text": "Issue 50 - Chave NFC-e alterando após autorização em contingência" },
+              { "type": "fix", "text": "Issue 51 - Erro 'null null' ao cancelar cupom após 30 minutos" }
+            ]
+          }
         ]
       },
-
       {
         "version": "2408.4",
         "date": "",
         "changes": [
-          { "type": "fix", "text": "Atualização da tabela tblpdvfecop com PDV em execução" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "fix", "text": "Atualização da tabela tblpdvfecop com PDV em execução" }
+            ]
+          }
         ]
       },
       {
         "version": "2408.3",
         "date": "",
         "changes": [
-          { "type": "improve", "text": "Contador de tempo na mensagem de Servidor OffLine (SSM_175)" },
-          { "type": "improve", "text": "Alterado fluxo de envio de fechamentos para Scanntech com mais logs" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "improve", "text": "Contador de tempo na mensagem de Servidor OffLine (SSM_175)" },
+              { "type": "improve", "text": "Alterado fluxo de envio de fechamentos para Scanntech com mais logs" }
+            ]
+          }
         ]
       },
       {
         "version": "2408.2",
         "date": "",
         "changes": [
-          { "type": "improve", "text": "Endpoints para ativar contingência por tempo ou lista de códigos" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "improve", "text": "Endpoints para ativar contingência por tempo ou lista de códigos" }
+            ]
+          }
         ]
       },
       {
         "version": "2408.1",
         "date": "",
         "changes": [
-          { "type": "fix", "text": "Não alterar para contingência NFC-e com pagamento TEF" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "fix", "text": "Não alterar para contingência NFC-e com pagamento TEF" }
+            ]
+          }
         ]
       },
       {
         "version": "2407.7",
         "date": "",
         "changes": [
-          { "type": "improve", "text": "Emitir NFC-e em contingência quando retorno 296" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "improve", "text": "Emitir NFC-e em contingência quando retorno 296" }
+            ]
+          }
         ]
       },
       {
         "version": "2407.6",
         "date": "",
         "changes": [
-          { "type": "fix", "text": "Emitir NFC-e em contingência quando TEF falhar ou não autorizado" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "fix", "text": "Emitir NFC-e em contingência quando TEF falhar ou não autorizado" }
+            ]
+          }
         ]
       },
       {
         "version": "2407.3",
         "date": "",
         "changes": [
-          { "type": "fix", "text": "Controle de transação com banco de dados do PDV" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "fix", "text": "Controle de transação com banco de dados do PDV" }
+            ]
+          }
         ]
       },
       {
         "version": "2407.2",
         "date": "",
         "changes": [
-          { "type": "improve", "text": "Implementação do protocolo para impressora Gertec G250" },
-          { "type": "fix", "text": "Impressão de sangria com múltiplos pagamentos" },
-          { "type": "fix", "text": "Impressão do cupom vinculado de contra-vale" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "improve", "text": "Implementação do protocolo para impressora Gertec G250" },
+              { "type": "fix", "text": "Impressão de sangria com múltiplos pagamentos" },
+              { "type": "fix", "text": "Impressão do cupom vinculado de contra-vale" }
+            ]
+          }
         ]
       },
       {
         "version": "2407.1",
         "date": "",
         "changes": [
-          { "type": "fix", "text": "Cálculo do valor líquido do produto com desconto na Scanntech" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "fix", "text": "Cálculo do valor líquido do produto com desconto na Scanntech" }
+            ]
+          }
         ]
       },
       {
         "version": "2406.2",
         "date": "",
         "changes": [
-          { "type": "improve", "text": "Aumento da quantidade de caracteres no cupom vinculado" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "improve", "text": "Aumento da quantidade de caracteres no cupom vinculado" }
+            ]
+          }
         ]
       },
       {
         "version": "2406.1",
         "date": "",
         "changes": [
-          { "type": "fix", "text": "Validação da licença na abertura de caixa" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "fix", "text": "Validação da licença na abertura de caixa" }
+            ]
+          }
         ]
       },
       {
         "version": "2405.2",
         "date": "",
         "changes": [
-          { "type": "improve", "text": "Implementação da NT 2023.004 V1.11" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "improve", "text": "Implementação da NT 2023.004 V1.11" }
+            ]
+          }
         ]
       },
       {
         "version": "2405.1",
         "date": "",
         "changes": [
-          { "type": "fix", "text": "Manter na tela de pagamentos ao informar múltiplos pagamentos" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "fix", "text": "Manter na tela de pagamentos ao informar múltiplos pagamentos" }
+            ]
+          }
         ]
       },
       {
         "version": "2404.7",
         "date": "",
         "changes": [
-          { "type": "fix", "text": "Exibir dialog de liberação na interface Windows" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "fix", "text": "Exibir dialog de liberação na interface Windows" }
+            ]
+          }
         ]
       },
       {
         "version": "2404.6",
         "date": "",
         "changes": [
-          { "type": "fix", "text": "Enviar XML de cupom cancelado por email no fechamento" },
-          { "type": "fix", "text": "Bloquear valor de acréscimo via scanner" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "fix", "text": "Enviar XML de cupom cancelado por email no fechamento" },
+              { "type": "fix", "text": "Bloquear valor de acréscimo via scanner" }
+            ]
+          }
         ]
       },
       {
         "version": "2404.5",
         "date": "",
         "changes": [
-          { "type": "fix", "text": "Ajuste na impressão de relatório não fiscal" },
-          { "type": "improve", "text": "Emitir NFC-e em contingência quando retorno 999" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "fix", "text": "Ajuste na impressão de relatório não fiscal" },
+              { "type": "improve", "text": "Emitir NFC-e em contingência quando retorno 999" }
+            ]
+          }
         ]
       },
       {
         "version": "2404.4",
         "date": "",
         "changes": [
-          { "type": "fix", "text": "Ajuste na impressão de comprovante não fiscal" },
-          { "type": "fix", "text": "Validação da licença na abertura do caixa" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "fix", "text": "Ajuste na impressão de comprovante não fiscal" },
+              { "type": "fix", "text": "Validação da licença na abertura do caixa" }
+            ]
+          }
         ]
       },
       {
         "version": "2404.3",
         "date": "",
         "changes": [
-          { "type": "fix", "text": "Exibir NFC-e para reimpressão" },
-          { "type": "improve", "text": "Envio da versão do PDV para Licweb" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "fix", "text": "Exibir NFC-e para reimpressão" },
+              { "type": "improve", "text": "Envio da versão do PDV para Licweb" }
+            ]
+          }
         ]
       },
       {
         "version": "2404.1",
         "date": "",
         "changes": [
-          { "type": "improve", "text": "Mudança no fluxo quando NFC-e é rejeitada" },
-          { "type": "improve", "text": "Ajuste na impressão do cupom vinculado" }
+          {
+            "category": "Geral",
+            "items": [
+              { "type": "improve", "text": "Mudança no fluxo quando NFC-e é rejeitada" },
+              { "type": "improve", "text": "Ajuste na impressão do cupom vinculado" }
+            ]
+          }
         ]
       }
     ]
+  },
+  {
+    "project": "Retaguarda",
+    "releases": []
   }
 ]

@@ -3,264 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Release Notes</title>
-<title>Sysmart Sistemas</title>
-
+<title>Release Notes Pro v5</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0f172a;
-  --sidebar: #020617;
-  --card: #111827;
-  --text: #e2e8f0;
-  --muted: #94a3b8;
-  --border: #1f2937;
-  --accent: #3b82f6;
+  --bg:#0f172a;--sidebar:#020617;--card:#111827;--text:#e2e8f0;--muted:#94a3b8;--border:#1f2937;--accent:#3b82f6;
 }
-
-html {
-  scroll-behavior: smooth;
+.light {
+  --bg:#f8fafc;--sidebar:#ffffff;--card:#ffffff;--text:#0f172a;--muted:#475569;--border:#e2e8f0;--accent:#2563eb;
 }
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  display: flex;
-}
-
-/* SIDEBAR */
-.sidebar {
-  width: 260px;
-  background: var(--sidebar);
-  height: 100vh;
-  padding: 20px;
-  box-sizing: border-box;
-  border-right: 1px solid var(--border);
-  position: fixed;
-  overflow-y: auto;
-}
-
-.logo {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.logo img {
-  max-width: 140px;
-  background: white;
-  padding: 8px;
-  border-radius: 10px;
-}
-
-.search {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  border: none;
-  background: var(--card);
-  color: var(--text);
-}
-
-.sidebar .project-title {
-  margin-top: 15px;
-  font-weight: bold;
-  color: white;
-  font-size: 14px;
-}
-
-.sidebar a {
-  display: block;
-  color: var(--muted);
-  text-decoration: none;
-  margin: 4px 0;
-  padding: 6px;
-  border-radius: 6px;
-  transition: 0.2s;
-}
-
-.sidebar a:hover {
-  background: var(--card);
-  color: white;
-}
-
-/* CONTENT */
-.content {
-  margin-left: 260px;
-  padding: 40px;
-  max-width: 900px;
-}
-
-/* PROJECT TITLE */
-.project-header {
-  margin-top: 40px;
-  font-size: 22px;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 5px;
-}
-
-/* VERSION CARD */
-.version {
-  margin-bottom: 40px;
-  padding: 20px;
-  background: var(--card);
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 0.5s forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.badge {
-  background: var(--accent);
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 12px;
-}
-
-.date {
-  color: var(--muted);
-  font-size: 13px;
-  margin-bottom: 10px;
-}
-
-.tag {
-  display: inline-block;
-  padding: 3px 8px;
-  border-radius: 6px;
-  font-size: 12px;
-  margin-right: 6px;
-}
-
-.new { background: #22c55e; }
-.fix { background: #ef4444; }
-.improve { background: #3b82f6; }
-
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);display:flex}
+.sidebar{width:260px;background:var(--sidebar);height:100vh;padding:20px;position:fixed;overflow-y:auto;border-right:1px solid var(--border)}
+.logo{text-align:center;margin-bottom:20px}
+.logo img{max-width:140px;background:white;padding:8px;border-radius:10px}
+.sidebar a{display:block;padding:8px;border-radius:6px;color:var(--muted);text-decoration:none;margin-bottom:4px}
+.sidebar a.active{background:var(--accent);color:white}
+.content{margin-left:260px;padding:40px;max-width:900px}
+.search{width:100%;padding:10px;border-radius:8px;border:none;background:var(--card);color:var(--text);margin-bottom:10px}
+.filters button,.toggle{margin:4px;padding:6px 10px;border:none;border-radius:6px;cursor:pointer;background:var(--card);color:var(--text)}
+.filters button.active{background:var(--accent)}
+.project-header{margin-top:40px;font-size:22px;border-bottom:1px solid var(--border);padding-bottom:5px}
+.version{margin-bottom:30px;padding:20px;background:var(--card);border-radius:14px;border:1px solid var(--border);box-shadow:0 10px 25px rgba(0,0,0,.2)}
+.header{display:flex;justify-content:space-between;align-items:center}
+.badge{background:var(--accent);padding:4px 10px;border-radius:8px;font-size:12px}
+.date{color:var(--muted);font-size:13px;margin-bottom:10px}
+.category{margin-top:15px;font-weight:600}
+.tag{display:inline-block;padding:3px 8px;border-radius:6px;font-size:12px;margin-right:6px}
+.new{background:#22c55e}.fix{background:#ef4444}.improve{background:#3b82f6}
+mark{background:yellow;color:black}
+.top-btn{position:fixed;bottom:20px;right:20px;background:var(--accent);border:none;padding:10px 14px;border-radius:8px;color:white;cursor:pointer}
+@media(max-width:768px){.sidebar{position:relative;width:100%;height:auto}.content{margin-left:0;padding:20px}}
 </style>
 </head>
-
 <body>
-
-<!-- SIDEBAR -->
 <div class="sidebar">
-  <div class="logo">
-    <img src="images/logo.png">
-  </div>
-
-  <input class="search" placeholder="Buscar..." oninput="filterVersions(this.value)">
-  <div id="menu"></div>
+<div class="logo"><img src="images/logo.png"></div>
+<input class="search" id="search" placeholder="Buscar...">
+<div class="filters">
+<button onclick="setFilter('all')">Todos</button>
+<button onclick="setFilter('new')">Novo</button>
+<button onclick="setFilter('fix')">Fix</button>
+<button onclick="setFilter('improve')">Melhoria</button>
+<button class="toggle" onclick="toggleTheme()">🌙/☀️</button>
 </div>
-
-<!-- CONTENT -->
+<div id="menu"></div>
+</div>
 <div class="content" id="content"></div>
-
+<button class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <script>
-function label(type) {
-  if (type === 'new') return 'Novo';
-  if (type === 'fix') return 'Fix';
-  if (type === 'improve') return 'Melhoria';
-  return type;
+let currentFilter=localStorage.getItem('filter')||'all';
+let query=localStorage.getItem('query')||'';
+document.getElementById('search').value=query;
+
+function label(t){return{new:'✨ Novo',fix:'🐞 Fix',improve:'⚡ Melhoria'}[t]||t}
+
+function highlight(text){if(!query)return text;const r=new RegExp(`(${query})`,'gi');return text.replace(r,'<mark>$1</mark>')}
+
+function render(data){
+const content=document.getElementById('content');
+const menu=document.getElementById('menu');
+content.innerHTML='';menu.innerHTML='';
+
+data.forEach(p=>{
+const h=document.createElement('div');h.className='project-header';h.innerText=p.project;content.appendChild(h);
+
+p.releases.sort((a,b)=>b.version.localeCompare(a.version,undefined,{numeric:true}));
+
+p.releases.forEach((v,i)=>{
+const id=p.project+'-'+v.version;
+const link=document.createElement('a');link.href='#'+id;link.innerText='v'+v.version;menu.appendChild(link);
+
+const div=document.createElement('div');div.className='version';div.id=id;
+let html=`<div class='header'><h2>Versão ${v.version}</h2>${i===0?'<span class="badge">Latest</span>':''}</div><div class='date'>${v.date}</div>`;
+
+v.changes.forEach(cat=>{
+html+=`<div class='category'>${cat.category}</div>`;
+cat.items.forEach(c=>{
+if(currentFilter!=='all'&&c.type!==currentFilter)return;
+let txt=highlight(c.text);
+if(!txt.toLowerCase().includes(query.toLowerCase()))return;
+html+=`<p><span class='tag ${c.type}'>${label(c.type)}</span> ${txt}</p>`;
+});
+});
+
+div.innerHTML=html;content.appendChild(div);
+});
+});
+spy();
 }
 
-/* 🔥 NOVA ORDENAÇÃO INTELIGENTE */
-function compareVersions(a, b) {
-  const isNewA = a.version.startsWith('2.');
-  const isNewB = b.version.startsWith('2.');
-
-  if (isNewA && !isNewB) return -1;
-  if (!isNewA && isNewB) return 1;
-
-  return b.version.localeCompare(a.version, undefined, { numeric: true });
+function spy(){
+const sections=document.querySelectorAll('.version');
+const links=document.querySelectorAll('.sidebar a');
+window.onscroll=()=>{
+let current='';
+sections.forEach(s=>{
+const top=s.offsetTop-100;
+if(scrollY>=top)current=s.id;
+});
+links.forEach(l=>{
+l.classList.remove('active');
+if(l.getAttribute('href')==='#'+current)l.classList.add('active');
+});
+};
 }
 
-function render(data) {
-  const content = document.getElementById('content');
-  const menu = document.getElementById('menu');
+function setFilter(f){currentFilter=f;localStorage.setItem('filter',f);load();}
 
-  content.innerHTML = '';
-  menu.innerHTML = '';
+document.getElementById('search').addEventListener('input',e=>{
+query=e.target.value.toLowerCase();localStorage.setItem('query',query);load();
+});
 
-  data.forEach(project => {
+function toggleTheme(){document.body.classList.toggle('light');}
 
-    const projectHeader = document.createElement('div');
-    projectHeader.className = 'project-header';
-    projectHeader.innerText = project.project;
-    content.appendChild(projectHeader);
+function load(){fetch('releases.json').then(r=>r.json()).then(d=>render(d));}
 
-    const menuTitle = document.createElement('div');
-    menuTitle.className = 'project-title';
-    menuTitle.innerText = project.project;
-    menu.appendChild(menuTitle);
-
-    /* 🔥 AQUI A ORDENAÇÃO CORRETA */
-    project.releases.sort(compareVersions);
-
-    project.releases.forEach((v, index) => {
-
-      const id = project.project + '-' + v.version;
-
-      const link = document.createElement('a');
-      link.href = '#' + id;
-      link.innerText = 'v' + v.version;
-      menu.appendChild(link);
-
-      const div = document.createElement('div');
-      div.className = 'version';
-      div.id = id;
-
-      let html = `
-        <div class="header">
-          <h2>Versão ${v.version}</h2>
-          ${index === 0 ? '<span class="badge">Latest</span>' : ''}
-        </div>
-      `;
-
-      html += `<div class="date">${v.date}</div>`;
-
-      v.changes.forEach(c => {
-        html += `<p><span class="tag ${c.type}">${label(c.type)}</span> ${c.text}</p>`;
-      });
-
-      div.innerHTML = html;
-      content.appendChild(div);
-    });
-
-  });
-}
-
-function filterVersions(query) {
-  query = query.toLowerCase();
-  const versions = document.querySelectorAll('.version');
-
-  versions.forEach(v => {
-    const text = v.innerText.toLowerCase();
-    v.style.display = text.includes(query) ? 'block' : 'none';
-  });
-}
-
-fetch('releases.json')
-  .then(res => res.json())
-  .then(data => render(data))
-  .catch(err => {
-    document.getElementById('content').innerHTML =
-      '<p>Erro ao carregar releases.json</p>';
-    console.error(err);
-  });
+load();
 </script>
-
 </body>
 </html>
